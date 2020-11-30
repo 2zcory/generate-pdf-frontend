@@ -1,0 +1,62 @@
+* {
+    color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+}
+
+.page-title {
+    text-align: center;
+    color: red;
+
+    @media print {
+        display: none;
+    }
+}
+
+#gen-pdf {
+    @media print {
+        display: none;
+    }
+}
+
+.pdf {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    &__date {
+        font-size: 0.875rem;
+        font-weight: bold;
+        text-align: right;
+    }
+
+    & .product {
+        display: flex;
+
+        &__left {
+            flex-basis: 140px;
+            height: 140px;
+            width: 140px;
+        }
+
+        &__right {
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+        }
+    }
+
+    &__page-number {
+        display: none;
+    }
+
+    @media print {
+        &__page-break {
+            page-break-after: always;
+        }
+    }
+}
